@@ -27,33 +27,35 @@ xiaozao-scriptwriter/
 │       ├── A15-review.txt             # 深度评测（非广告）
 │       ├── A38-ad.txt                 # 广告植入标杆
 │       └── A50-opinion.txt            # 观点输出（非广告）
+└── xiaozao-scriptwriter.skill         # 打包好的 skill 安装包
 ```
 
 ## 安装方式
 
-### 方式一：直接 clone（推荐）
+### OpenClaw 用户
+
+从仓库的 Releases 或根目录下载 `xiaozao-scriptwriter.skill` 文件，然后解压到 skills 目录：
+
+```bash
+# 下载 .skill 包后解压安装
+unzip xiaozao-scriptwriter.skill -d ~/.agents/skills/
+```
+
+或者直接 clone 整个仓库：
 
 ```bash
 git clone https://github.com/jadon7/xiaozao-scriptwriter.git ~/.agents/skills/xiaozao-scriptwriter
 ```
 
-重启 OpenClaw 后，skill 会自动出现在可用列表中。
+安装后重启 OpenClaw，skill 会自动出现在可用列表中。
 
-### 方式二：安装 .skill 包
+### 其他 AI 工具用户
 
-如果你拿到了 `xiaozao-scriptwriter.skill` 文件：
+本 skill 的核心内容是纯 Markdown 文件，不依赖 OpenClaw。你可以：
 
-```bash
-# 解压到 skills 目录
-unzip xiaozao-scriptwriter.skill -d ~/.agents/skills/
-```
-
-### 方式三：手动放置
-
-把整个 `xiaozao-scriptwriter/` 文件夹复制到以下任一位置：
-
-- `~/.agents/skills/`（用户级）
-- `<workspace>/.agents/skills/`（项目级）
+1. 把 `references/style-guide.md` + `vocabulary.md` + `structure-templates.md` 的内容作为 system prompt 或自定义指令
+2. 把 `examples/` 下的范文作为 few-shot 示例
+3. 把 `SKILL.md` 中的质量检查清单作为写完后的 review checklist
 
 ## 使用方式
 
